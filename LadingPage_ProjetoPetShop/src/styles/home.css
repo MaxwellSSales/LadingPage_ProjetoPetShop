@@ -4,6 +4,37 @@
   position: relative;
 }
 
+.heart {
+  position: fixed;
+  top: 100vh;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  transform: rotate(-45deg);
+  animation: float 10s linear infinite;
+
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -50%;
+  left: 0;
+}
+
+.heart::after {
+  left: 50%;
+  top: 0;
+}
+
 #cta {
   width: 35%;
   display: flex;
@@ -72,6 +103,20 @@
   top: 0;
   right: 0;
   z-index: 1;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(-45deg);
+    opacity: 1;
+  }
+
+
+
+  100% {
+    transform: translateY(-100vh) rotate(-45deg);
+    opacity: 0;
+  }
 }
 
 @media screen and (max-width: 1170px) {
