@@ -58,3 +58,25 @@ $(document).ready(function () {
     distance: '20%',
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Script carregado"); // Para verificar se o script está rodando
+  
+  function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      document.body.appendChild(heart);
+
+      let size = Math.random() * 20 + 10; // Mantém um tamanho proporcional
+      heart.style.width = size + "px";
+      heart.style.height = size + "px";
+      heart.style.left = Math.random() * 100 + "vw"; // Posição aleatória
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s"; // Duração aleatória
+
+      setTimeout(() => {
+          heart.remove();
+      }, 5000); // Remove o coração após 5s
+  }
+
+  setInterval(createHeart, 500); // Cria um coração a cada 500ms
+});
